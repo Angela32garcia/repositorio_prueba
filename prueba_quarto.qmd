@@ -1,0 +1,52 @@
+---
+title: "github_quarto_prueba"
+format:
+  revealjs:
+    embed-resources: true
+execute: 
+  echo: true
+code-fold: true
+---
+
+## Carga de datos
+
+```{r}
+library(tidyverse)
+datos <- read_csv(file="./datos/accidentes.csv")
+datos
+
+```
+
+---
+
+## Resumen datos
+
+
+
+```{r}
+resumen <- datos |> count(sexo)
+resumen
+
+```
+
+
+
+---
+
+## Visualización
+
+```{r}
+
+gg <- ggplot(resumen)+
+  geom_col(aes(x=sexo, y=n, fill=sexo), alpha=0.56)+
+  theme_minimal()
+
+gg
+
+```
+
+
+
+
+
+
